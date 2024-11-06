@@ -1,0 +1,33 @@
+﻿
+@model Project_63134295.Models.Cart
+@{
+    ViewBag.Title = "ThanhToan";
+    Layout=null;
+}
+
+@if (Model != null)
+{
+    <h3>Giỏ hàng <span style="float:right;">@Html.Action("Bag", "Cart_63134295")</span></h3>
+    var tongtien = decimal.Zero;
+    <div style="border: 1px solid #000000">
+        <table class="table">
+            @foreach (var item in Model.Items)
+            {
+                tongtien += (decimal)(item._goitap.Gia.Value * item._goitap_soluong);
+                <tr>
+                    <td>
+                        @item._goitap.TenGoi&nbsp;
+                    </td>
+                    <td>@item._goitap.Gia</td>
+                </tr>
+            }
+            <tr style="border-top: 1px solid #333">
+                <td>Thành tiền</td>
+                <td>@tongtien</td>
+            </tr>
+        </table>
+    </div>
+
+}
+
+

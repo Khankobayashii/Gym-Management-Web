@@ -1,0 +1,34 @@
+﻿@model Project_63134295.Models.GoiTap
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h4>THÔNG TIN CHI TIẾT GÓI TẬP</h4>
+<table border="1" cellpadding="0" cellspacing="0" style="font-size:14px;margin-left:50px;">
+    <tr>
+        <td>
+            <table cellpadding="2" cellspacing="10">
+                <tr>
+                    <td>Mã Gói:</td>
+                    <td>@Html.DisplayFor(model => model.MaGoi)</td>
+                </tr>
+                <tr>
+                    <td>TÊN GÓI :</td>
+                    <td>@Html.DisplayFor(model => model.TenGoi)</td>
+                </tr>
+                <tr>
+                    <td>MÔ TẢ:</td>
+                    <td>@Html.DisplayFor(model => model.MoTa)</td>
+                </tr>
+                <tr>
+                    <td>GIÁ TIỀN:</td>
+                    <td>@Html.DisplayFor(model => model.Gia)</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

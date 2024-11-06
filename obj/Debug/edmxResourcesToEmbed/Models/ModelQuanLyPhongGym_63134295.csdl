@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Project_63134295Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MK" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="TenHienThi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="RoleID" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="GoiTap">
+    <Key>
+      <PropertyRef Name="MaGoi" />
+    </Key>
+    <Property Name="MaGoi" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenGoi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MoTa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Gia" Type="Double" />
+    <NavigationProperty Name="LichTrinhTaps" Relationship="Self.FK__LichTrinh__MaGoi__4222D4EF" FromRole="GoiTap" ToRole="LichTrinhTap" />
+    <NavigationProperty Name="ChiTietDonHangs" Relationship="Project_63134295Model.FK__ChiTietDo__MaGoi__60A75C0F" FromRole="GoiTap" ToRole="ChiTietDonHang" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HoKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SoDT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="LichTrinhTaps" Relationship="Self.FK__LichTrinhT__MaKH__412EB0B6" FromRole="KhachHang" ToRole="LichTrinhTap" />
+    <NavigationProperty Name="DonHangs" Relationship="Project_63134295Model.FK__DonHang__MaKH__5CD6CB2B" FromRole="KhachHang" ToRole="DonHang" />
+  </EntityType>
+  <EntityType Name="LichTrinhTap">
+    <Key>
+      <PropertyRef Name="MaLichTrinh" />
+    </Key>
+    <Property Name="MaLichTrinh" Type="Int32" Nullable="false" />
+    <Property Name="MaKH" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaGoi" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="NgayBatDau" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="NgayKetThuc" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="GoiTap" Relationship="Self.FK__LichTrinh__MaGoi__4222D4EF" FromRole="LichTrinhTap" ToRole="GoiTap" />
+    <NavigationProperty Name="KhachHang" Relationship="Self.FK__LichTrinhT__MaKH__412EB0B6" FromRole="LichTrinhTap" ToRole="KhachHang" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HoNV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenNV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SoDT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <Property Name="DiaChi" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="ChucVu" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="ngaysinh" Type="DateTime" Precision="0" />
+  </EntityType>
+  <Association Name="FK__LichTrinh__MaGoi__4222D4EF">
+    <End Role="GoiTap" Type="Self.GoiTap" Multiplicity="1" />
+    <End Role="LichTrinhTap" Type="Self.LichTrinhTap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GoiTap">
+        <PropertyRef Name="MaGoi" />
+      </Principal>
+      <Dependent Role="LichTrinhTap">
+        <PropertyRef Name="MaGoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LichTrinhT__MaKH__412EB0B6">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+    <End Role="LichTrinhTap" Type="Self.LichTrinhTap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="LichTrinhTap">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Project_63134295Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Self.Account" />
+    <EntitySet Name="GoiTaps" EntityType="Self.GoiTap" />
+    <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
+    <EntitySet Name="LichTrinhTaps" EntityType="Self.LichTrinhTap" />
+    <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
+    <AssociationSet Name="FK__LichTrinh__MaGoi__4222D4EF" Association="Self.FK__LichTrinh__MaGoi__4222D4EF">
+      <End Role="GoiTap" EntitySet="GoiTaps" />
+      <End Role="LichTrinhTap" EntitySet="LichTrinhTaps" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LichTrinhT__MaKH__412EB0B6" Association="Self.FK__LichTrinhT__MaKH__412EB0B6">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="LichTrinhTap" EntitySet="LichTrinhTaps" />
+    </AssociationSet>
+    <FunctionImport Name="KhachHang_TimKiem">
+      <Parameter Name="MaKH" Mode="In" Type="String" />
+      <Parameter Name="HoTen" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="ChiTietDonHangs" EntityType="Project_63134295Model.ChiTietDonHang" />
+    <EntitySet Name="DonHangs" EntityType="Project_63134295Model.DonHang" />
+    <EntitySet Name="sysdiagrams" EntityType="Project_63134295Model.sysdiagram" />
+    <AssociationSet Name="FK__ChiTietDo__MaGoi__60A75C0F" Association="Project_63134295Model.FK__ChiTietDo__MaGoi__60A75C0F">
+      <End Role="GoiTap" EntitySet="GoiTaps" />
+      <End Role="ChiTietDonHang" EntitySet="ChiTietDonHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChiTietDon__MaDH__5FB337D6" Association="Project_63134295Model.FK__ChiTietDon__MaDH__5FB337D6">
+      <End Role="DonHang" EntitySet="DonHangs" />
+      <End Role="ChiTietDonHang" EntitySet="ChiTietDonHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DonHang__MaKH__5CD6CB2B" Association="Project_63134295Model.FK__DonHang__MaKH__5CD6CB2B">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="DonHang" EntitySet="DonHangs" />
+    </AssociationSet>
+    <FunctionImport Name="NhanVien_TimKiem">
+      <Parameter Name="MaNV" Mode="In" Type="String" />
+      <Parameter Name="HoTen" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(Project_63134295Model.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(Project_63134295Model.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <EntityType Name="ChiTietDonHang">
+    <Key>
+      <PropertyRef Name="MaCTDH" />
+    </Key>
+    <Property Name="MaCTDH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaDH" Type="Int32" />
+    <Property Name="MaGoi" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="soluong" Type="Int32" />
+    <Property Name="tong" Type="Int32" />
+    <NavigationProperty Name="GoiTap" Relationship="Project_63134295Model.FK__ChiTietDo__MaGoi__60A75C0F" FromRole="ChiTietDonHang" ToRole="GoiTap" />
+    <NavigationProperty Name="DonHang" Relationship="Project_63134295Model.FK__ChiTietDon__MaDH__5FB337D6" FromRole="ChiTietDonHang" ToRole="DonHang" />
+  </EntityType>
+  <EntityType Name="DonHang">
+    <Key>
+      <PropertyRef Name="MaDH" />
+    </Key>
+    <Property Name="MaDH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaKH" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="TenKH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ghichu" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ngaydat" Type="DateTime" Precision="0" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="diachi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChiTietDonHangs" Relationship="Project_63134295Model.FK__ChiTietDon__MaDH__5FB337D6" FromRole="DonHang" ToRole="ChiTietDonHang" />
+    <NavigationProperty Name="KhachHang" Relationship="Project_63134295Model.FK__DonHang__MaKH__5CD6CB2B" FromRole="DonHang" ToRole="KhachHang" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__ChiTietDo__MaGoi__60A75C0F">
+    <End Type="Project_63134295Model.GoiTap" Role="GoiTap" Multiplicity="0..1" />
+    <End Type="Project_63134295Model.ChiTietDonHang" Role="ChiTietDonHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GoiTap">
+        <PropertyRef Name="MaGoi" />
+      </Principal>
+      <Dependent Role="ChiTietDonHang">
+        <PropertyRef Name="MaGoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChiTietDon__MaDH__5FB337D6">
+    <End Type="Project_63134295Model.DonHang" Role="DonHang" Multiplicity="0..1" />
+    <End Type="Project_63134295Model.ChiTietDonHang" Role="ChiTietDonHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonHang">
+        <PropertyRef Name="MaDH" />
+      </Principal>
+      <Dependent Role="ChiTietDonHang">
+        <PropertyRef Name="MaDH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DonHang__MaKH__5CD6CB2B">
+    <End Type="Project_63134295Model.KhachHang" Role="KhachHang" Multiplicity="0..1" />
+    <End Type="Project_63134295Model.DonHang" Role="DonHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="DonHang">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

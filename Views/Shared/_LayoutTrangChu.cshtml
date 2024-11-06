@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Gym Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/TrangChu.css" rel="stylesheet" />
+    <link href="~/Content/animated.css" rel="stylesheet" />
+   <script src="~/Scripts/main.js"></script>
+    <style>
+        .wow:first-child {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    @RenderBody()
+    <!-- Start Header  -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="">Fitness <span>Club</span></a>
+            </div>
+            <a href="javascript:void(0)" class="ham-burger">
+                <span></span>
+                <span></span>
+            </a>
+            <div class="nav">
+                <ul>
+                    <li>  @Html.ActionLink("LOGIN", "../Account_63134295/Login", new { @class = "a" }) &nbsp;&nbsp;</li>
+                    <li>  @Html.ActionLink("SIGNUP", "../Account_63134295/Signup", new { @class = "a" }) &nbsp;&nbsp;</li>
+                    <li>  @Html.ActionLink("CUSTOMER", "../KhachHangs_63134295/Index", new { @class = "a" }) &nbsp;&nbsp;</li>
+                    <li>  @Html.ActionLink("PACKAGES", "../GoiTaps_63134295/Index", new { @class = "a" }) &nbsp;&nbsp;</li>
+                    <li>  @Html.ActionLink("SCHEDULE", "../LichTrinhTaps_63134295/Index", new { @class = "a" }) &nbsp;&nbsp;</li>
+                    
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- End Header  -->
+    <!-- Start Home -->
+    <section class="home" id="home">
+        <div class="container">
+            <h1 class="wow slideInLeft" data-wow-delay="1s">It's <span>gym</span> time. Let's go</h1>
+            <h1 class="wow slideInRight" data-wow-delay="1s">We are ready to <span>fit you</span></h1>
+        </div>
+        <!-- go down -->
+        <a href="#about" class="go-down">
+            <i class="fa fa-angle-down" aria-hidden="true"></i>
+        </a>
+        <!-- go down -->
+    </section>
+    <!-- End Home -->
+    <!-- Start About -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="content">
+                <div class="box wow bounceInUp">
+                    <div class="inner">
+                        <div class="img">
+                            <img src="~/images/about1.jpg" alt="about" />
+                        </div>
+                        <div class="text">
+                            <h4>Free Consultation</h4>
+                            <p>Tại trung tâm thể dục của chúng tôi, chúng tôi cam kết mang đến cho bạn một trải nghiệm tập luyện tuyệt vời và đáng nhớ. Để giúp bạn bắt đầu hành trình tập luyện của mình, chúng tôi cung cấp dịch vụ Tư vấn Miễn phí, giúp bạn hiểu rõ hơn về các lợi ích và chương trình tập luyện phù hợp</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="box wow bounceInUp" data-wow-delay="0.2s">
+                    <div class="inner">
+                        <div class="img">
+                            <img src="~/images/about2.jpg" alt="about" />
+                        </div>
+                        <div class="text">
+                            <h4>Best Training</h4>
+                            <p>Chúng tôi cam kết mang đến cho bạn những phương pháp tập luyện tốt nhất từ những huấn luyện viên tốt nhất. Chúng tôi tự hào về sự đa dạng của các chương trình tập luyện mà chúng tôi cung cấp, từ tập luyện chức năng, tăng cơ, giảm mỡ, giảm cân cho đến tăng cường sức bền và nâng cao thể lực.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="box wow bounceInUp" data-wow-delay="0.4s">
+                    <div class="inner">
+                        <div class="img">
+                            <img src="~/images/about3.jpg" alt="about" />
+                        </div>
+                        <div class="text">
+                            <h4>Build Perfect Body</h4>
+                            <p>Chương trình "Xây dựng Cơ thể Hoàn hảo" được thiết kế bởi các chuyên gia hàng đầu trong lĩnh vực thể hình và tập luyện. Chúng tôi kết hợp các phương pháp tập luyện hiệu quả như tăng cơ, giảm mỡ, tăng cường sức bền và nâng cao thể lực, giúp bạn đạt được cơ thể mạnh mẽ và cân đối.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End About -->
+    <!-- Start Service -->
+    <section class="service" id="service">
+        <div class="container">
+            <div class="content">
+                <div class="text box wow slideInLeft">
+                    <h2>Services</h2>
+                    <p>Hãy bước vào cuộc hành trình sức khỏe của bạn ngay hôm nay tại trung tâm thể dục của chúng tôi. Chúng tôi có sẵn dịch vụ đăng ký và bắt đầu tập luyện, giúp bạn khởi đầu một lối sống lành mạnh và một cơ thể tốt hơn. Với đội ngũ huấn luyện viên chuyên nghiệp và thiết bị tập luyện hiện đại, chúng tôi sẽ đồng hành cùng bạn từng bước trên con đường đạt được mục tiêu tập luyện của mình.</p>
+                    <p>Chào mừng bạn đến với cộng đồng tập luyện của chúng tôi! Hãy chuẩn bị khám phá tiềm năng tối đa của cơ thể và tinh thần thông qua dịch vụ tại phòng tập của chúng tôi. Bắt đầu hành trình tập luyện của bạn ngay bây giờ và tạo ra sự thay đổi đáng kinh ngạc cho sức khỏe và cảm giác của bạn.</p>
+                    <a href="" class="btn">Start Now</a>
+                </div>
+                <div class="accordian box wow slideInRight">
+                    <div class="accordian-container active">
+                        <div class="head">
+                            <h4>Cardiovascular Equipment</h4>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <div class="body">
+                            <p>Tất cả thiết bị đều được thiết kế hiện đại và tiên tiến, mang lại trải nghiệm tập luyện mượt mà và hiệu quả cao. Hãy đến và trải nghiệm Cardiovascular Equipment tại phòng gym của chúng tôi để nâng cao sức khỏe và thể lực của bạn.</p>
+                        </div>
+                    </div>
+                    <div class="accordian-container">
+                        <div class="head">
+                            <h4>Strength Training Equipment</h4>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <div class="body">
+                            <p> Mạnh mẽ và hiệu quả. Với các thiết bị tập luyện cường độ, bạn có thể xây dựng sức mạnh và sức bền đáng kinh ngạc. Từ các tạ và thanh đẩy đến máy kéo và máy chạy bộ, chúng tôi cung cấp các thiết bị tập cường độ hiện đại để giúp bạn đạt được cơ thể mạnh mẽ và cân đối. Hãy sẵn sàng để vượt qua giới hạn của mình và trở thành phiên bản tốt nhất của chính bạn với thiết bị tập luyện cường độ.</p>
+                        </div>
+                    </div>
+                    <div class="accordian-container">
+                        <div class="head">
+                            <h4>Group Fitness Class</h4>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <div class="body">
+                            <p>Đồng hành cùng những người có cùng mục tiêu và đam mê tập luyện. Với các lớp tập nhóm, bạn sẽ tận hưởng không chỉ lợi ích của việc có huấn luyện viên chỉ dẫn chuyên nghiệp, mà còn sự hỗ trợ và động lực từ những người tập cùng nhóm. Hãy cùng nhau tạo ra sự phấn khích và nâng cao sức khỏe trong một không gian tập luyện tích cực và đầy năng lượng.</p>
+                        </div>
+                    </div>
+                    <div class="accordian-container">
+                        <div class="head">
+                            <h4>Other Services</h4>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <div class="body">
+                            <p>Bên cạnh tập luyện, chúng tôi cung cấp một loạt các dịch vụ khác để nâng cao trải nghiệm của bạn. Từ dịch vụ thư giãn như spa và sauna, đến tư vấn dinh dưỡng và chế độ ăn uống, chúng tôi cam kết đáp ứng các nhu cầu sức khỏe và thể lực của bạn. Hãy tận hưởng những dịch vụ bổ sung này và tạo ra một cơ thể và tinh thần hoàn hảo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Service -->
+    <!-- Start Today -->
+    <section class="start-today">
+        <div class="container">
+            <div class="content">
+                <div class="box text wow slideInLeft">
+                    <h2>Start Your Training Today</h2>
+                    <p>Tại phòng gym của chúng tôi, chúng tôi coi trọng việc phục vụ khách hàng và đảm bảo rằng bạn có một trải nghiệm tuyệt vời mỗi khi đến tập luyện. Đội ngũ nhân viên chúng tôi đã được đào tạo kỹ năng giao tiếp tốt và am hiểu về các bài tập và thiết bị trong phòng gym. Chúng tôi sẵn lòng hướng dẫn và hỗ trợ bạn trong quá trình tập luyện, đảm bảo rằng bạn đạt được mục tiêu cá nhân của mình và tận hưởng quá trình tập luyện an toàn và hiệu quả.</p>
+                    <a href="" class="btn">Start Now</a>
+                </div>
+                <div class="box img wow slideInRight">
+                    <img src="~/images/samsulek.jpg" alt="start today" />
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- End Start Today -->
+    <!-- Start Price -->
+    <section class="price-package" id="price">
+        <div class="container">
+            <h2>Choose Your Package</h2>
+            <p class="title-p">Với các gói tùy chọn linh hoạt, chúng tôi đảm bảo rằng bạn sẽ tìm thấy sự lựa chọn phù hợp với ngân sách và thời gian của mình. Hãy khởi đầu hành trình tập luyện của bạn và bắt đầu đạt được cơ thể hoàn hảo với gói dịch vụ tốt nhất cho bạn., </p>
+            <div class="content">
+                <div class="box wow bounceInUp">
+                    <div class="inner">
+                        <div class="price-tag">
+                            250K/1Tháng
+                        </div>
+                        <div class="img">
+                            <img src="~/images/price3.jpg" alt="price" />
+                        </div>
+                        <div class="text">
+                            <h3>Body Building Training</h3>
+                            <p>Get Free WiFi</p>
+                            <p>Month to Month</p>
+                            <p>No Time Restrictions</p>
+                            <p>Gym and Cardio</p>
+                            <p>Service Locker Rooms</p>
+                            <a href="/GoiTaps_63134295/index" class="btn">Join Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="box wow bounceInUp" data-wow-delay="0.2s">
+                    <div class="inner">
+                        <div class="price-tag">
+                            350K/1Tháng
+                        </div>
+                        <div class="img">
+                            <img src="~/images/price1.jpg" alt="price" />
+                        </div>
+                        <div class="text">
+                            <h3>Body Building Training</h3>
+                            <p>Get Free WiFi</p>
+                            <p>Month to Month</p>
+                            <p>No Time Restrictions</p>
+                            <p>Gym and Cardio</p>
+                            <p>Service Locker Rooms</p>
+                            <a href="/GoiTaps_63134295/index" class="btn">Join Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="box wow bounceInUp" data-wow-delay="0.4s">
+                    <div class="inner">
+                        <div class="price-tag">
+                            450K/1Tháng
+                        </div>
+                        <div class="img">
+                            <img src="~/images/price2.jpg" alt="price" />
+                        </div>
+                        <div class="text">
+                            <h3>Body Building Training</h3>
+                            <p>Get Free WiFi</p>
+                            <p>Month to Month</p>
+                            <p>No Time Restrictions</p>
+                            <p>Gym and Cardio</p>
+                            <p>Service Locker Rooms</p>
+                            <a href="/GoiTaps_63134295/index" class="btn">Join Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Price -->
+    <!-- Start Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="content">
+                <div class="box form wow slideInLeft">
+                    <form>
+                        <input type="text" placeholder="Enter Name">
+                        <input type="text" placeholder="Enter Email">
+                        <input type="text" placeholder="Enter Mobile">
+                        <textarea placeholder="Enter Message"></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+                <div class="box text wow slideInRight">
+                    <h2>Get Connected with Gym</h2>
+                    <p class="title-p">Đến và trải nghiệm một không gian tập luyện đầy động lực và hãy chuẩn bị cho sự thay đổi tích cực trong cuộc sống của bạn.</p>
+                    <div class="info">
+                        <ul>
+                            <li><span class="fa fa-map-marker"></span> Nha Trang - Khánh Hòa</li>
+                            <li><span class="fa fa-phone"></span> 0865379410</li>
+                            <li><span class="fa fa-envelope"></span> khang.np.63cntt@ntu.edu.vn</li>
+                        </ul>
+                    </div>
+                    <div class="social">
+                        <a href=""><span class="fa fa-facebook"></span></a>
+                        <a href=""><span class="fa fa-linkedin"></span></a>
+                        <a href=""><span class="fa fa-skype"></span></a>
+                        <a href=""><span class="fa fa-youtube-play"></span></a>
+                    </div>
+
+                    <div class="copy">
+                        PowerBy &copy; Phước Khang
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Contact -->
+    <!-- jquery -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $(".ham-burger, .nav ul li a").click(function () {
+
+                $(".nav").toggleClass("open")
+
+                $(".ham-burger").toggleClass("active");
+            })
+            $(".accordian-container").click(function () {
+                $(".accordian-container").children(".body").slideUp();
+                $(".accordian-container").removeClass("active")
+                $(".accordian-container").children(".head").children("span").removeClass("fa-angle-down").addClass("fa-angle-up")
+                $(this).children(".body").slideDown();
+                $(this).addClass("active")
+                $(this).children(".head").children("span").removeClass("fa-angle-up").addClass("fa-angle-down")
+            })
+
+            $(".nav ul li a, .go-down").click(function (event) {
+                if (this.hash !== "") {
+
+                    event.preventDefault();
+
+                    var hash = this.hash;
+
+                    $('html,body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function () {
+                        window.location.hash = hash;
+                    });
+
+                    // add active class in navigation
+                    $(".nav ul li a").removeClass("active")
+                    $(this).addClass("active")
+                }
+            })
+        })
+
+    </script>
+    <script src="js/wow.min.js"></script>
+    <script>
+        wow = new WOW(
+            {
+                animateClass: 'animated',
+                offset: 0,
+            }
+        );
+        wow.init();
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+

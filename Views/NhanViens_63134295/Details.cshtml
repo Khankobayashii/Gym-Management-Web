@@ -1,0 +1,54 @@
+﻿@model Project_63134295.Models.NhanVien
+
+@{
+    ViewBag.Title = "Details";
+    string gtinh = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h4><p>THÔNG TIN CHI TIẾT </p></h4>
+<table border="1" cellpadding="0" cellspacing="0" style="font-size:14px;margin-left:50px;">
+    <tr>
+        <td>
+            <table cellpadding="2" cellspacing="10">
+
+                <tr>
+                    <td>Mã nhân viên:</td>
+                    <td>@Html.DisplayFor(model => model.MaNV)</td>
+                </tr>
+                <tr>
+                    <td>Họ nhân viên:</td>
+                    <td>@Html.DisplayFor(model => model.HoNV)</td>
+                </tr>
+                <tr>
+                    <td>Tên nhân viên:</td>
+                    <td>@Html.DisplayFor(model => model.TenNV)</td>
+                </tr>
+                <tr>
+                    <td>Giới tính:</td>
+                    <td>
+                        @{if (Model.GioiTinh == true)
+                            { gtinh = "Nam"; }
+                            else
+                            { gtinh = "Nữ"; }
+                        }
+                        @gtinh
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Địa chỉ:</td>
+                    <td>@Html.DisplayFor(model => model.DiaChi)</td>
+                </tr>
+                <tr>
+                    <td>Chức vụ:</td>
+                    <td>@Html.DisplayFor(model => model.ChucVu)</td>
+                </tr>
+                
+            </table>
+        </td>
+    </tr>
+</table>
+<p style="margin-left:50px;">
+    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.MaNV }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>

@@ -1,0 +1,54 @@
+﻿
+@model Project_63134295.Models.Cart
+
+@{
+    ViewBag.Title = "CheckOut";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/Content/GD.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+}
+
+<html>
+<body>
+    @using (Html.BeginForm("CheckOut", "Cart_63134295", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>Thanh toán</h1>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <h3>Thông tin khách hàng</h3>
+                <div class="form-group">
+                    <label>Họ tên khách hàng</label>
+                    <input type="text" name="TenKH" class="form-control" autocomplete="off" required />
+                </div>
+                <div class="form-group">
+                    <label>Địa chỉ</label>
+                    <input type="text" name="diachi" class="form-control" autocomplete="off" required />
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" name="Email" class="form-control" autocomplete="off" required />
+                </div>
+                <div class="form-group">
+                    <label>Ghi chú</label>
+                    <input type="text" name="ghichu" class="form-control" autocomplete="off" required />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Đặt hàng" class="btn btn-block btn-danger mt-4 form-control" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                @Html.Action("Show", "Cart_63134295")
+            </div>
+        </div>
+    }
+</body>
+</html>
+
+
+
+

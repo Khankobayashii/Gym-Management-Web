@@ -1,0 +1,59 @@
+﻿@model Project_63134295.Models.KhachHang
+
+@{
+    ViewBag.Title = "Details";
+    string gtinh = "";
+}
+
+<h4>THÔNG TIN CHI TIẾT</h4>
+<table border="1" cellpadding="0" cellspacing="0" style="font-size:14px;margin-left:50px;">
+    <tr>
+        <td>
+            <table cellpadding="2" cellspacing="10">
+                <tr>
+                    <td>Mã Khách Hàng:</td>
+                    <td>@Html.DisplayFor(model => model.MaKH)</td>
+                </tr>
+                <tr>
+                    <td>Họ Khách hàng:</td>
+                    <td>@Html.DisplayFor(model => model.HoKH)</td>
+                </tr>
+                <tr>
+                    <td>Tên Khách Hàng:</td>
+                    <td>@Html.DisplayFor(model => model.TenKH)</td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại:</td>
+                    <td>@Html.DisplayFor(model => model.SoDT)</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>@Html.DisplayFor(model => model.Email)</td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ:</td>
+                    <td>@Html.DisplayFor(model => model.DiaChi)</td>
+                </tr>
+                <tr>
+                    <td>Ngày sinh:</td>
+                    <td>@Html.DisplayFor(model => model.NgaySinh)</td>
+                </tr>
+                <tr>
+                    <td>Giới tính:</td>
+                    <td>
+                        @{if (Model.GioiTinh == true)
+                            { gtinh = "Nam"; }
+                            else
+                            { gtinh = "Nữ"; }
+                        }
+                        @gtinh
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<p>
+
+    @Html.ActionLink("Quay lại", "Index")
+</p>

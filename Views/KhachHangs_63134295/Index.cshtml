@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Project_63134295.Models.KhachHang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var grid = new WebGrid(Model, canPage: true, defaultSort: "TenKH", rowsPerPage: 5);
+    @Scripts.Render("~/Scripts/jquery-1.6.2.min.js")
+
+}
+
+<center><h4>DANH SÁCH KHÁCH HÀNG</h4></center>
+
+<html>
+<head>
+    <style type="text/css">
+        .grid-footer {
+            color: #000;
+            font: 17px Calibri;
+            text-align: center;
+            font-weight: bold;
+        }
+
+            .grid-footer a {
+                background-color: #ffffff;
+                color: blue;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                padding: 1px 10px 2px 10px;
+            }
+
+                .grid-footer a:active, a:hover {
+                    background-color: #ffffff;
+                    color: #FFAD33;
+                    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                }
+
+        .alternatingRowStyle {
+            background-color: aliceblue;
+        }
+
+        table .table1 {
+            text-align: left;
+            margin-left: 0px;
+            margin-right: 0px;
+            width: 800px;
+        }
+
+        .tr, .td {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="gridContent">
+        @ViewBag.TB
+        @grid.GetHtml(
+            tableStyle: "table table-bordered table-hover",
+            footerStyle: "grid-footer",
+            fillEmptyRows: true,
+            mode: WebGridPagerModes.Numeric,
+            alternatingRowStyle: "alternatingRowStyle",
+              columns: new[]  // colums in grid
+             {
+        grid.Column("MaKH","Mã khách hàng"), //the model fields to display
+        grid.Column("HoKH","Họ khách hàng"),
+        grid.Column("TenKH","Tên khách hàng"),
+        grid.Column("SoDT","Số điện thoại"),
+        grid.Column("diachi","Địa chỉ"),
+        grid.Column("ngaysinh","Ngày sinh",format:@<text> @item.NgaySinh.ToString("dd/MM/yyyy")</text>),
+grid.Column("gioitinh","Giới tính",format: (@item) => @item.GioiTinh==true?"Nam":"Nữ"),
+grid.Column(format: (item) => Html.ActionLink("Sửa", "Edit","KhachHangs_63134295", new { id = item.MaKH },"KhachHangs_63134295Controller")),
+grid.Column(format: (item) => Html.ActionLink("Xóa", "Delete","KhachHangs_63134295", new { id = item.MaKH },"KhachHangs_63134295Controller")),
+grid.Column(format: (item) => Html.ActionLink("Xem chi tiết", "Details","KhachHangs_63134295", new { id = item.MaKH },"KhachHangs_63134295Controller"))
+}
+)
+    </div>
+    @Html.ActionLink("Thêm mới", "Create")|@Html.ActionLink("Tìm Kiếm", "TimKiemNC")
+</body>
+</html>
